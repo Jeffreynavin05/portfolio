@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jeffrey Navin — Portfolio
 
-## Getting Started
+A single-page portfolio built with Next.js (App Router), TypeScript, and Tailwind CSS. No CMS, no database — all copy lives in [`src/content.ts`](src/content.ts).
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Everything you'd want to change day-to-day — the hero copy, project descriptions, experience, skills, and links — is in [`src/content.ts`](src/content.ts). It's fully typed, so editing it will surface a type error if a required field goes missing. You shouldn't need to touch any component to update text.
 
-## Learn More
+To add a real repo link for a project that currently shows "Repo link coming soon," set its `repoUrl` in `content.ts`.
 
-To learn more about Next.js, take a look at the following resources:
+## Resume
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The hero's "Resume" link points to `/resume.pdf`. Add your resume PDF at `public/resume.pdf` — it isn't included in this repo.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Theme
 
-## Deploy on Vercel
+Dark mode is the default. The toggle in the header flips a `dark` class on `<html>` and remembers the choice in `localStorage`. Color tokens live in [`src/app/globals.css`](src/app/globals.css).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push this repo to GitHub.
+2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
+3. No configuration needed — Vercel detects Next.js automatically. Click Deploy.
+
+Or from the CLI:
+
+```bash
+npx vercel
+```
+
+## Stack
+
+- Next.js (App Router) + TypeScript
+- Tailwind CSS v4
+- Geist Sans / Geist Mono (`next/font`)
+- No external UI or animation libraries
+# portfolio
